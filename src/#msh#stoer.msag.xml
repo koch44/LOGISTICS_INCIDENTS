@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>/MSH/STOER</ARBGB>
+    <MASTERLANG>D</MASTERLANG>
+    <STEXT>Nachrichtenklasse für Störungsmeldungen</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>000</MSGNR>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Bitte geben Sie den Gültigkeitsbeginn an.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Das Ende der Störung liegt vor deren Beginn.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Störungszeitraum vom &amp;1 bis &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Bitte geben Sie einen Störungsbereich an.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Störungsbereich ist nicht oder mehrfach vorhanden. Bitte prüfen.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Dynpro &amp;1 des Programms &amp;2 existiert nicht oder ist kein Subscreen.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Bitte geben Sie einen Grund an.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>PVA &amp;1 passt nicht zum Druckerzeugnis &amp;2.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Fehler beim Sichern. Bitte Administrator verständigen.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>&amp;1 mit der ID &amp;2 erfolgreich gesichert.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Fehler bei Adressauswahl. Bitte Administrator verständigen.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Mehr als eine Adresse vorhanden, bitte nur eine auswählen.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Bitte geben Sie ein Druckerzeugnis an.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Adresse ist postalisch nicht codierbar. Einige Funktionen eingeschränkt.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Nur Meldungen, die in der Zukunft beginnen, können gelöscht werden.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Störungsmeldung &amp; wurde gelöscht.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>017</MSGNR>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>Erweiterte Konsistenzprüfungen werden durchgeführt.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>Es konnte keine Fehlerart ermittelt werden.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Bei Angabe einer Abladestelle muß auch eine Tagesroute angegeben werden.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>--- START PRÜFUNG VERSANDDATUM &amp;  ---</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>Keine Verbreitungsdaten zum Versanddatum &amp; ermittelt.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>Zum &amp;1 werden Meldungen in &amp;2 Bezirk(en) geprüft.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>Am &amp;1 existiert schon eine Meldung für Bezirk &amp;2.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>------&gt; &amp; &lt;------</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>026</MSGNR>
+     <TEXT>Weitere Verarbeitung wegen Fehler beendet.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>027</MSGNR>
+     <TEXT>Mußfeld &amp; ist initial, bitte prüfen.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>028</MSGNR>
+     <TEXT>Zeitraum vom &amp;1 bis &amp;2 liegt in der Zukunft und wird nicht geprüft.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>029</MSGNR>
+     <TEXT>PVA &amp;1 zu Druckerzeugnis &amp;2 erscheint am &amp;3 nicht.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>Lieferart &amp; ist nicht logistisch relevant.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>031</MSGNR>
+     <TEXT>Anlagedaten fehlerhaft. Abbruch.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>032</MSGNR>
+     <TEXT>Fehlermeldung &amp;1 für Bezirk &amp;2 zum &amp;3 erfolgreich angelegt.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>033</MSGNR>
+     <TEXT>Fehlermeldung zu Bezirk &amp;1 zum &amp;2 konnte nicht angelegt werden.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>034</MSGNR>
+     <TEXT>PVA &amp;1 zu Druckerzeugnis &amp;2 am &amp;3 in Ordnung.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>035</MSGNR>
+     <TEXT>Fehlermeldung &amp;1 für &amp;2/&amp;3 zum &amp;4 erfolgreich angelegt</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>036</MSGNR>
+     <TEXT>Fehlermeldung für &amp;1/&amp;2 zum &amp;3 konnte nicht angelegt werden.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>037</MSGNR>
+     <TEXT>Am &amp;1 existiert bereits eine Meldung zu &amp;2/&amp;3</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>038</MSGNR>
+     <TEXT>Keine Prüfungen beim Ändern einer bestehenden Meldung</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>039</MSGNR>
+     <TEXT>Mail konnte nicht an Empfänger &amp; versandt werden.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>040</MSGNR>
+     <TEXT>Mail wurde erfolgreich an Empfänger &amp; versandt.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>041</MSGNR>
+     <TEXT>Bitte bei Lieferart &amp; PLZ-Leitgebiet angeben (* für alle)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>042</MSGNR>
+     <TEXT>Route &amp;1 u.a. am &amp;2 nicht befahren. Zeitraum wird ggf. neu berechnet.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>043</MSGNR>
+     <TEXT>Fehler in Zeitraumprüfung für Route &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>108</MSGNR>
+     <TEXT>Achtung! Es liegt eine aktuelle, aktive Vertriebsstörung bis &amp;1 vor.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>109</MSGNR>
+     <TEXT>Hinweis! Für den heutigen Tag lag eine Vertriebsstörung bis &amp;1 vor.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>110</MSGNR>
+     <TEXT>Achtung!Hinweis! Es liegen Vertriebsstörungen vor.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>/MSH/STOER</ARBGB>
+     <MSGNR>115</MSGNR>
+     <TEXT>Achtung! Es liegt eine aktuelle Vertriebsstörung für heute vor.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

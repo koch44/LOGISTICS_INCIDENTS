@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Funktionen Störungscockpit</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>/MSH/LSTOER_FKTF01</SOBJ_NAME>
+    <SOBJ_NAME>/MSH/LSTOER_FKTO01</SOBJ_NAME>
+    <SOBJ_NAME>/MSH/LSTOER_FKTP01</SOBJ_NAME>
+    <SOBJ_NAME>/MSH/LSTOER_FKTTOP</SOBJ_NAME>
+    <SOBJ_NAME>LJS01PT1</SOBJ_NAME>
+    <SOBJ_NAME>LJSS3ST1</SOBJ_NAME>
+    <SOBJ_NAME>/MSH/SAPLSTOER_FKT</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>/MSH/CALL_STOER_VIEW</FUNCNAME>
+     <SHORT_TEXT>Störungsmeldung als Popup aus CIC anzeigen</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_KEY</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>SWO_TYPEID</TYP>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_KEY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Objektschlüssel</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/MSH/STOER_AKT_READ</FUNCNAME>
+     <SHORT_TEXT>Aktuelle Störungen je GPNR auslesen</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_GPNR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>GPNR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_CLASS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>REF TO /MSH/CL_STOER_HELPER</TYP>
+       <REF_CLASS>X</REF_CLASS>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_ITEM</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>RJYCIC_MSDITEMDATATAB</TYP>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>ET_LIEF</PARAMETER>
+       <DBSTRUCT>/MSH/STOER_T_LF</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ET_PROD</PARAMETER>
+       <DBSTRUCT>/MSH/STOER_T_PRD</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ET_GP</PARAMETER>
+       <DBSTRUCT>/MSH/STOER_T_GP</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ET_DIG</PARAMETER>
+       <DBSTRUCT>/MSH/STOER_T_DIG</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_GPNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>IS-M: Geschäftspartner-Schlüssel</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_CLASS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Ermittlung Vertriebsstörungen</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_ITEM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>IS-M: CIC, M/SD-Auftragsdaten (Tabellentyp)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_LIEF</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fortschreibungstabelle lieferrelevante Störungen</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_PROD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fortschreibungstabelle produktionsbezogene Störungen</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_GP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fortschreibungstabelle GP-bezogene Störungen</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_DIG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fortschreibungstabelle digitale Meldungen</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/MSH/STOER_CHECK_BEABLST</FUNCNAME>
+     <SHORT_TEXT>Prüfung, ob Abladestelle auf Route liegt</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_ABLAD</PARAMETER>
+       <TYP>BEABLST</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_ROUTE</PARAMETER>
+       <TYP>ISPROUTE</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_GUEVON</PARAMETER>
+       <DEFAULT>SY-DATUM</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>DATS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_GUEBIS</PARAMETER>
+       <DEFAULT>&apos;99991231&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>DATS</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EV_FOUND</PARAMETER>
+       <TYP>ABAP_BOOL</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_ABLAD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>IS-M: Abladestelle</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_ROUTE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Route Verlagswesen</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_GUEVON</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Feld vom Typ DATS</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_GUEBIS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Feld vom Typ DATS</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_FOUND</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/MSH/STOER_GET_ROUTE</FUNCNAME>
+     <SHORT_TEXT>Routen aus Bezirk lesen</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_BEZIRK</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BEZIRK</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_DATUM</PARAMETER>
+       <DEFAULT>SY-DATUM</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>DATS</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ER_ROUTEN</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/MSH/STOER_TT_ROUTE</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_BEZIRK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Bezirk</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_DATUM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Feld vom Typ DATS</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ER_ROUTEN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Range zu Routen</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/MSH/STOER_HIST_READ</FUNCNAME>
+     <SHORT_TEXT>Historische Störungen je GPNR auslesen</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_GPNR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>GPNR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_CLASS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>REF TO /MSH/CL_STOER_HELPER</TYP>
+       <REF_CLASS>X</REF_CLASS>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_ITEM</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>RJYCIC_MSDITEMDATATAB</TYP>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>ET_LIEF</PARAMETER>
+       <DBSTRUCT>/MSH/STOER_T_LF</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ET_PROD</PARAMETER>
+       <DBSTRUCT>/MSH/STOER_T_PRD</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ET_GP</PARAMETER>
+       <DBSTRUCT>/MSH/STOER_T_GP</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ET_DIG</PARAMETER>
+       <DBSTRUCT>/MSH/STOER_T_DIG</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_GPNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>IS-M: Geschäftspartner-Schlüssel</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_CLASS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Ermittlung Vertriebsstörungen</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_ITEM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>IS-M: CIC, M/SD-Auftragsdaten (Tabellentyp)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_LIEF</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fortschreibungstabelle lieferrelevante Störungen</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_PROD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fortschreibungstabelle produktionsbezogene Störungen</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_GP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fortschreibungstabelle GP-bezogene Störungen</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_DIG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fortschreibungstabelle digitale Meldungen</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/MSH/STOER_READ_TO_DYN</FUNCNAME>
+     <SHORT_TEXT>Störungen für CIC lesen</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_GPNR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>GPNR</TYP>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_GPNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>IS-M: Geschäftspartner-Schlüssel</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+   <DYNPROS>
+    <item>
+     <HEADER>
+      <PROGRAM>/MSH/SAPLSTOER_FKT</PROGRAM>
+      <SCREEN>0100</SCREEN>
+      <LANGUAGE>D</LANGUAGE>
+      <DESCRIPT>Anzeige Vertriebsstörungen im CIC</DESCRIPT>
+      <TYPE>I</TYPE>
+      <NEXTSCREEN>0100</NEXTSCREEN>
+      <LINES>004</LINES>
+      <COLUMNS>130</COLUMNS>
+     </HEADER>
+     <CONTAINERS>
+      <RPY_DYCATT>
+       <TYPE>SCREEN</TYPE>
+       <NAME>SCREEN</NAME>
+      </RPY_DYCATT>
+      <RPY_DYCATT>
+       <TYPE>CUST_CTRL</TYPE>
+       <NAME>CONTAINER_AKT</NAME>
+       <ELEMENT_OF>SCREEN</ELEMENT_OF>
+       <LINE>002</LINE>
+       <COLUMN>002</COLUMN>
+       <LENGTH>063</LENGTH>
+       <HEIGHT>002</HEIGHT>
+      </RPY_DYCATT>
+      <RPY_DYCATT>
+       <TYPE>CUST_CTRL</TYPE>
+       <NAME>CONTAINER_HIST</NAME>
+       <ELEMENT_OF>SCREEN</ELEMENT_OF>
+       <LINE>002</LINE>
+       <COLUMN>067</COLUMN>
+       <LENGTH>063</LENGTH>
+       <HEIGHT>002</HEIGHT>
+      </RPY_DYCATT>
+     </CONTAINERS>
+     <FIELDS>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>FRAME</TYPE>
+       <NAME>FR_VERT</NAME>
+       <TEXT>AKTUELLE_Vertriebsstörungen_____________________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>001</COLUMN>
+       <LENGTH>065</LENGTH>
+       <VISLENGTH>065</VISLENGTH>
+       <HEIGHT>004</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <REQU_ENTRY>N</REQU_ENTRY>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>FRAME</TYPE>
+       <NAME>FR_VERTHIST</NAME>
+       <TEXT>HISTORISCHE_Vertriebsstörungen__________________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>066</COLUMN>
+       <LENGTH>065</LENGTH>
+       <VISLENGTH>065</VISLENGTH>
+       <HEIGHT>004</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <REQU_ENTRY>N</REQU_ENTRY>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>OKCODE</TYPE>
+       <TEXT>____________________</TEXT>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <INPUT_FLD>X</INPUT_FLD>
+      </RPY_DYFATC>
+     </FIELDS>
+     <FLOW_LOGIC>
+      <RPY_DYFLOW>
+       <LINE>PROCESS BEFORE OUTPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>MODULE create_containers.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>MODULE screen_170_build.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>MODULE show_data.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>PROCESS AFTER INPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>* MODULE USER_COMMAND_0100.</LINE>
+      </RPY_DYFLOW>
+     </FLOW_LOGIC>
+     <SPACES>
+      <item>0</item>
+      <item>2</item>
+      <item>2</item>
+      <item>2</item>
+      <item>0</item>
+      <item>0</item>
+     </SPACES>
+    </item>
+   </DYNPROS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
