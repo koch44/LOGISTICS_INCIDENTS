@@ -583,7 +583,9 @@ FORM check_const_0230 CHANGING es_bezirk TYPE ty_bezirk.
       PERFORM msg_add_handle USING probclass_none
                                    ls_log_handle.
 * Log ausgeben
-      PERFORM log_display_popup USING ls_log_handle.
+      IF con_no_display_popop EQ abap_false.
+        PERFORM log_display_popup USING ls_log_handle.
+      ENDIF.
 * Log löschen
       CALL FUNCTION 'BAL_LOG_REFRESH'
         EXPORTING
@@ -733,7 +735,9 @@ FORM check_const_0230 CHANGING es_bezirk TYPE ty_bezirk.
         PERFORM msg_add_handle USING probclass_none
                                      ls_log_handle.
 * Log ausgeben
-        PERFORM log_display_popup USING ls_log_handle.
+        IF con_no_display_popop EQ abap_false.
+          PERFORM log_display_popup USING ls_log_handle.
+        ENDIF.
 * Log löschen
         CALL FUNCTION 'BAL_LOG_REFRESH'
           EXPORTING
@@ -881,7 +885,9 @@ FORM check_const_0230 CHANGING es_bezirk TYPE ty_bezirk.
     ENDIF.
 
 * Log ausgeben
-    PERFORM log_display_popup USING ls_log_handle.
+    IF con_no_display_popop EQ abap_false.
+      PERFORM log_display_popup USING ls_log_handle.
+    ENDIF.
 
 * Log löschen
     CALL FUNCTION 'BAL_LOG_REFRESH'
@@ -944,7 +950,9 @@ FORM check_const_0230 CHANGING es_bezirk TYPE ty_bezirk.
         PERFORM msg_add_handle USING probclass_none
                                      ls_log_handle.
 * Log ausgeben
-        PERFORM log_display_popup USING ls_log_handle.
+        IF con_no_display_popop EQ abap_false.
+          PERFORM log_display_popup USING ls_log_handle.
+        ENDIF.
 * Log löschen
         CALL FUNCTION 'BAL_LOG_REFRESH'
           EXPORTING
@@ -999,7 +1007,9 @@ FORM check_const_0230 CHANGING es_bezirk TYPE ty_bezirk.
                                    ls_log_handle.
     ENDIF.
 * Log ausgeben
-    PERFORM log_display_popup USING ls_log_handle.
+    IF con_no_display_popop EQ abap_false.
+      PERFORM log_display_popup USING ls_log_handle.
+    ENDIF.
 * Log löschen
     CALL FUNCTION 'BAL_LOG_REFRESH'
       EXPORTING

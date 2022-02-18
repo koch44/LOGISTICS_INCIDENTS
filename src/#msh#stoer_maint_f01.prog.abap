@@ -1425,7 +1425,7 @@ FORM select_exist_gp .
 * Feldkatalog bauen
     CALL FUNCTION 'LVC_FIELDCATALOG_MERGE'
       EXPORTING
-        i_structure_name       = 'ZJKS_STOER_EXIST_GP'
+        i_structure_name       = '/MSH/STOER_S_EXIST_GP'
         i_client_never_display = 'X'
       CHANGING
         ct_fieldcat            = lt_fieldcat
@@ -2160,7 +2160,7 @@ FORM select_exist_lief .
             id                      = 'LIEF'
             language                = sy-langu
             name                    = lv_name
-            object                  = 'ZJKT_STOER'
+            object                  = '/MSH/STOER'
           TABLES
             lines                   = lt_text
           EXCEPTIONS

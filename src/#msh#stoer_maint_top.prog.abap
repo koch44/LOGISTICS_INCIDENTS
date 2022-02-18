@@ -8,7 +8,8 @@ PROGRAM /msh/stoer_maint MESSAGE-ID /msh/stoer.
 TYPE-POOLS: vrm, jkd.
 
 * Konstanten
-CONSTANTS : con_text_line_length TYPE i VALUE 72 .
+CONSTANTS : con_text_line_length TYPE i VALUE 72,
+            con_no_display_popop TYPE abap_bool VALUE abap_true.  "Keine LOG-Messages im Popup anzeigen. Wenn gewünsht, dann nach ABAP_FALSE modifizieren
 
 * Typen
 TYPES : text_table_type(con_text_line_length) TYPE c OCCURS 0 .

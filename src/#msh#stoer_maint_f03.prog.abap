@@ -102,7 +102,9 @@ FORM save_230_bezirk .
 
 
 * Log ausgeben und clearen
-    PERFORM log_display_popup USING ls_log_handle.
+    IF con_no_display_popop EQ abap_false.
+      PERFORM log_display_popup USING ls_log_handle.
+    ENDIF.
     CALL FUNCTION 'BAL_LOG_REFRESH'
       EXPORTING
         i_log_handle  = ls_log_handle
@@ -217,7 +219,9 @@ FORM save_230_zustellung .
 
 
 * Log ausgeben und clearen
-    PERFORM log_display_popup USING ls_log_handle.
+    IF con_no_display_popop EQ abap_false.
+      PERFORM log_display_popup USING ls_log_handle.
+    ENDIF.
     CALL FUNCTION 'BAL_LOG_REFRESH'
       EXPORTING
         i_log_handle  = ls_log_handle
@@ -327,7 +331,9 @@ FORM save_230_bezrunde .
 
 
 * Log ausgeben und clearen
-    PERFORM log_display_popup USING ls_log_handle.
+    IF con_no_display_popop EQ abap_false.
+      PERFORM log_display_popup USING ls_log_handle.
+    ENDIF.
     CALL FUNCTION 'BAL_LOG_REFRESH'
       EXPORTING
         i_log_handle  = ls_log_handle
@@ -439,7 +445,9 @@ FORM save_230_pva .
 
 
 * Log ausgeben und clearen
-    PERFORM log_display_popup USING ls_log_handle.
+    IF con_no_display_popop EQ abap_false.
+      PERFORM log_display_popup USING ls_log_handle.
+    ENDIF.
     CALL FUNCTION 'BAL_LOG_REFRESH'
       EXPORTING
         i_log_handle  = ls_log_handle
