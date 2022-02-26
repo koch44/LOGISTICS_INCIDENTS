@@ -122,10 +122,7 @@ CLASS /MSH/CL_STOER_HELPER IMPLEMENTATION.
     CHECK NOT ct_messages[] IS INITIAL.
 
 * Wenn kein Vertriebskunde, dann initialisieren
-    SELECT SINGLE COUNT(*) FROM knvv WHERE kunnr = iv_gpnr
-                                       AND vkorg = 'RHP'
-                                       AND vtweg = '01'
-                                       AND spart = 'ZT'.
+    SELECT SINGLE COUNT(*) FROM jgvdb_ku WHERE gpnr = iv_gpnr.
     IF sy-subrc NE 0 AND it_item[] IS INITIAL.
       REFRESH ct_messages[].
       EXIT.

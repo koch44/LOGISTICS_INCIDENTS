@@ -79,14 +79,14 @@ FUNCTION /msh/stoer_akt_read.
     lv_postleit = lv_plz(2).
   ENDIF.
 
-* DRERZ-Range aufbauen
-  SORT lt_item BY drerz ASCENDING.
-  DELETE ADJACENT DUPLICATES FROM lt_item COMPARING drerz.
+  DATA(lt_help) = lt_item.
+
+* Lieferart
+  SORT lt_item BY lieferart ASCENDING.
+  DELETE ADJACENT DUPLICATES FROM lt_item COMPARING lieferart.
   LOOP AT lt_item ASSIGNING <fs_item>.
-    ls_drerz-sign = 'I'.
-    ls_drerz-option = 'EQ'.
-    ls_drerz-low = <fs_item>-drerz.
-    APPEND ls_drerz TO lr_drerz.
+    READ TABLE <fs_item>-jparvwtab ASSIGNING FIELD-SYMBOL(<fs_check>) WITH KEY table_line = |WE|.
+    CHECK sy-subrc = 0.
     ls_lfart-sign = 'I'.
     ls_lfart-option = 'EQ'.
     ls_lfart-low = <fs_item>-lieferart.
@@ -96,6 +96,17 @@ FUNCTION /msh/stoer_akt_read.
     IF sy-subrc = 0.
       APPEND ls_lfart TO lr_lfart.
     ENDIF.
+  ENDLOOP.
+
+* DRERZ-Range aufbauen
+  lt_item = lt_help.
+  SORT lt_item BY drerz ASCENDING.
+  DELETE ADJACENT DUPLICATES FROM lt_item COMPARING drerz.
+  LOOP AT lt_item ASSIGNING <fs_item>.
+    ls_drerz-sign = 'I'.
+    ls_drerz-option = 'EQ'.
+    ls_drerz-low = <fs_item>-drerz.
+    APPEND ls_drerz TO lr_drerz.
   ENDLOOP.
 
 * ZJKT_STOER_LIEF (Nur PVA, den Rest selektiert schon die CIC-Klasse ausser bei Lieferart Post)

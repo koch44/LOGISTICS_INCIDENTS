@@ -1,17 +1,30 @@
-FUNCTION /MSH/STOER_READ_TO_DYN.
+FUNCTION /msh/stoer_read_to_dyn.
 *"----------------------------------------------------------------------
 *"*"Lokale Schnittstelle:
 *"  IMPORTING
 *"     REFERENCE(IV_GPNR) TYPE  GPNR
+*"     REFERENCE(IX_SERVICECALL) TYPE  ABAP_BOOL DEFAULT ABAP_FALSE
+*"  EXPORTING
+*"     REFERENCE(ET_AKT) TYPE  /MSH/STOER_TT_INTERR
+*"     REFERENCE(ET_HIST) TYPE  /MSH/STOER_TT_INTERR
+*"     REFERENCE(ET_LIEF) TYPE  /MSH/STOER_TT_LF
+*"     REFERENCE(ET_PROD) TYPE  /MSH/STOER_TT_PROD
+*"     REFERENCE(ET_GP) TYPE  /MSH/STOER_TT_GP
+*"     REFERENCE(ET_DIG) TYPE  /MSH/STOER_TT_DIG
+*"     REFERENCE(ET_LIEF_HIST) TYPE  /MSH/STOER_TT_LF
+*"     REFERENCE(ET_PROD_HIST) TYPE  /MSH/STOER_TT_PROD
+*"     REFERENCE(ET_GP_HIST) TYPE  /MSH/STOER_TT_GP
+*"     REFERENCE(ET_DIG_HIST) TYPE  /MSH/STOER_TT_DIG
+*"     REFERENCE(EV_MESSAGE) TYPE  STRING
 *"----------------------------------------------------------------------
 
-DATA: lcl_hist TYPE REF TO /MSH/CL_STOER_HELPER,
-        lcl_akt  TYPE REF TO /MSH/CL_STOER_HELPER.
+  DATA: lcl_hist TYPE REF TO /msh/cl_stoer_helper,
+        lcl_akt  TYPE REF TO /msh/cl_stoer_helper.
   DATA: lt_child_tab   TYPE TABLE OF isu_badi_cic_env,
         ls_child       TYPE isu_badi_cic_env,
         lv_nr_of_lines TYPE i.
-  DATA: lt_messages TYPE /MSH/CL_STOER_HELPER=>tt_msg,
-        lv_message  TYPE /MSH/CL_STOER_HELPER=>ty_msg.
+  DATA: lt_messages TYPE /msh/cl_stoer_helper=>tt_msg,
+        lv_message  TYPE /msh/cl_stoer_helper=>ty_msg.
 
   DATA: lt_lief       TYPE TABLE OF /msh/stoer_t_lf,
         lt_dig        TYPE TABLE OF /msh/stoer_t_dig,
@@ -414,22 +427,48 @@ DATA: lcl_hist TYPE REF TO /MSH/CL_STOER_HELPER,
         ct_messages = lt_messages.
     LOOP AT lt_messages INTO lv_message.
       CASE lv_message-state.
-        WHEN /MSH/CL_STOER_HELPER=>cc_state_act_on.
-          MESSAGE i108 WITH lv_message-time_as_string.
+        WHEN /msh/cl_stoer_helper=>cc_state_act_on.
+          IF ix_servicecall = abap_false.
+            MESSAGE i108 WITH lv_message-time_as_string.
 *         Achtung! Es liegt eine aktuelle, aktive Vertriebsstörung bis &1 vor.
-        WHEN /MSH/CL_STOER_HELPER=>cc_state_act_off.
-          MESSAGE i109 WITH lv_message-time_as_string.
+          ELSE.
+            MESSAGE i108 WITH lv_message-time_as_string INTO ev_message.
+          ENDIF.
+        WHEN /msh/cl_stoer_helper=>cc_state_act_off.
+          IF ix_servicecall = abap_false.
+            MESSAGE i109 WITH lv_message-time_as_string.
 *         Hinweis! Für den heutigen Tag lag eine Vertriebsstörung bis &1 vor.
-        WHEN /MSH/CL_STOER_HELPER=>cc_state_act_onoff.
-          MESSAGE i110.
+          ELSE.
+            MESSAGE i109 WITH lv_message-time_as_string INTO ev_message.
+          ENDIF.
+        WHEN /msh/cl_stoer_helper=>cc_state_act_onoff.
+          IF ix_servicecall = abap_false.
+            MESSAGE i110.
 *         Achtung!Hinweis! Es liegen Vertriebsstörung vor (Aktive und Behobene)
+          ELSE.
+            MESSAGE i110 INTO ev_message.
+          ENDIF.
         WHEN lcl_akt->cc_state_act_on_without_time.
-          MESSAGE i115.
+          IF ix_servicecall = abap_false.
+            MESSAGE i115.
 *         Achtung! Es liegt eine aktuelle Vertriebsstörung für heute vor.
+          ELSE.
+            MESSAGE i115 INTO ev_message.
+          ENDIF.
       ENDCASE.
     ENDLOOP.
   ENDIF.
 
-
+  CHECK ix_servicecall = abap_true.
+  et_akt = gt_akt.
+  et_hist = gt_hist.
+  et_lief = lt_lief.
+  et_prod = lt_prod.
+  et_gp = lt_gp.
+  et_dig = lt_dig.
+  et_lief_hist = lt_lief_hist.
+  et_prod_hist = lt_prod_hist.
+  et_gp_hist = lt_gp_hist.
+  et_dig_hist = lt_dig_hist.
 
 ENDFUNCTION.
